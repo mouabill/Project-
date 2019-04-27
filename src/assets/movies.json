@@ -1,0 +1,25 @@
+[
+    {
+        "title": "Avengers: End Game",
+        "reviews": "4.9",
+        "rating": "PG-13",
+        "genre": "Action, Thriller, Comedy",
+        "src": "https://www.youtube.com/embed/TcMBFSGVi1c"
+    },
+    {
+        "title": "Shazmam",
+        "reviews": "4.8",
+        "rating": "PG-13",
+        "genre": "Action, Thriller, Comedy",
+        "src": "https://www.youtube.com/embed/-oD7B7oiBtw"
+    },
+    {
+        "title": "US",
+        "reviews": "4.1",
+        "rating": "Rated R",
+        "genre": "Horror. Thriller, Mystery",
+        "src": "https://www.youtube.com/embed/1tzFRIQfwXg"
+    }
+
+
+]

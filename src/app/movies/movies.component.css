@@ -1,0 +1,50 @@
+.btn-outline-success {
+    margin: 10px;
+}
+
+
+
+.main-top {
+    display: none;
+}
+
+.btn-primary {
+    margin: 10px;
+}
+
+.btn-danger {
+    margin: 10px;
+}
+
+.spacing {
+    margin: 10px;
+}
+
+.btn-success {
+    margin: 10px;
+}
+
+.pull-right {
+    float: right;   
+  }
+
+  .main-container {
+    margin: 20px auto;
+    width: 90%;
+    height: 20%;
+    overflow: auto;
+  }
+
+  .header-container {
+    margin: 20px auto;
+    width: 90%;
+    
+}
+
+.top-container {
+   
+}
+
+.list-container {
+ 
+}
