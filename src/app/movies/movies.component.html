@@ -23,31 +23,32 @@
 
 
 <div>
-    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark top-container">
-      <a class="navbar-brand" href="#">Movies R Us</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <button type="button" class="btn btn-outline-success">All Movies</button>
-      <button type="button" class="btn btn-outline-success" (click)="randomMovie()">Randomizer</button>
-      <button type="button" class="btn btn-outline-success">Suggested</button>
-      <button type="button" class="btn btn-outline-success">Make it Yourself!</button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-  
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="movieParams" name="search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="searchCart(movieParams)">Search</button>
-        </form>
-      </div>
-    </nav>
-  </div>
-  
-  
-  
-  <!-- 
+  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark top-container">
+    <a class="navbar-brand" href="#">Movies R Us</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <button type="button" class="btn btn-outline-success" (click)="addAllMovies()">All Movies</button>
+    <button type="button" class="btn btn-outline-success" (click)="randomMovie()">Randomizer</button>
+    <button type="button" class="btn btn-outline-success">Request A Movie</button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+          [(ngModel)]="movieParams" name="search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+          (click)="searchCart(movieParams)">Search</button>
+      </form>
+    </div>
+  </nav>
+</div>
+
+
+
+<!-- 
   <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -69,165 +70,543 @@
     <button type="button" class="btn btn-primary">Primary</button>
   </table>
    -->
-  
-   <h1 class="spacing header-container">WATCH CART <span class="badge badge-secondary "> <mat-icon>shopping_cart</mat-icon></span></h1>
-   <table class="table spacing main-container">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">Title</th>
-          <th scope="col">Reviews</th>
-          <th scope="col">Rating</th>
-          <th scope="col">Genre</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let movies of movies; let i = index">
-          <th scope="row">{{movies.title}}</th>
-          <td>{{movies.reviews}}</td>
-          <td>{{movies.rating}}</td>
-          <td>{{movies.genre}}</td>
-          <td><button type="button" class="btn btn-danger pull-right" mat-raised-button color="warn" (click)="delete(i)">
-              <mat-icon>delete_sweep</mat-icon>
-             </button></td>
-        </tr>
-       
-      </tbody>
-    </table>
-  
-    
-  
-    <mat-grid-list cols="2" rowHeight="2:1" class="spacing list-container">
-        <mat-grid-tile class="spacing">
-  
-            <figure class="figure">
-  
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/TcMBFSGVi1c" allowfullscreen></iframe>
-                  </div>
-          
-               
-                <table class="table">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Reviews</th>
-                        <th scope="col">Rating</th>
-                        <th scope="col">Genre</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">Avengers: End Game</th>
-                        <td>4.8</td>
-                        <td>PG-13</td>
-                        <td>Action, Thriller, Comedy</td>
-                      </tr>
-                    </tbody>
-  
-                       <button type="button" class="btn btn-primary">
-                          <mat-icon>thumb_up</mat-icon>
-                        </button>
-  
-  
-                        <button type="button" class="btn btn-danger"> 
-                            <mat-icon>thumb_down</mat-icon>
-                          </button>
-                          
-                            <button type="button" class="btn btn-success" (click)="addToCart('avengers')"> <mat-icon>shopping_cart</mat-icon></button>
-                          
-                        </table>
-              </figure></mat-grid-tile>
-  
-              
-              
-              <mat-grid-tile class="spacing">
-  
-                  <figure class="figure">
-        
-                      <div class="embed-responsive embed-responsive-16by9">
-                          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/-oD7B7oiBtw" allowfullscreen></iframe>
-                        </div>
-                
-                     
-                      <table class="table">
-                          <thead class="thead-dark">
-                            <tr>
-                              <th scope="col">Title</th>
-                              <th scope="col">Reviews</th>
-                              <th scope="col">Rating</th>
-                              <th scope="col">Genre</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="row">Shazam!</th>
-                              <td>3.5</td>
-                              <td>PG-13</td>
-                              <td>Action, Thriller, Comedy</td>
-                            </tr>
-                          </tbody>
-        
-                             <button type="button" class="btn btn-primary">
-                                <mat-icon>thumb_up</mat-icon>
-                              </button>
-        
-        
-                              <button type="button" class="btn btn-danger">
-                                  <mat-icon>thumb_down</mat-icon>
-                                </button>
-                               
-       
-                                    <button type="button" class="btn btn-success" (click)="addToCart('shaz')" > <mat-icon>shopping_cart</mat-icon></button>
-                                 
-                                   
-                              </table>
-                    </figure></mat-grid-tile>
-  
-  
-                    <mat-grid-tile class="spacing">
-  
-                        <figure class="figure">
-              
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/1tzFRIQfwXg" allowfullscreen></iframe>
-                              </div>
-                      
-                           
-                            <table class="table">
-                                <thead class="thead-dark">
-                                  <tr>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Reviews</th>
-                                    <th scope="col">Rating</th>
-                                    <th scope="col">Genre</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">US</th>
-                                    <td>4.1</td>
-                                    <td>R</td>
-                                    <td>Horror, Thriller, Mystery</td>
-                                  </tr>
-                                </tbody>
-              
-                                   <button type="button" class="btn btn-primary">
-                                      <mat-icon>thumb_up</mat-icon>
-                                    </button>
-              
-                                  
-              
-                                    <button type="button" class="btn btn-danger">
-                                        <mat-icon>thumb_down</mat-icon>
-                                      </button>
-                                      <button type="button" class="btn btn-success" (click)="addToCart('us')"> <mat-icon>shopping_cart</mat-icon></button>
-                                    </table>
-                          </figure></mat-grid-tile>
-  
-              
-        
-      </mat-grid-list>
-      
-  
-      
+
+
+<h1 class="spacing header-container">WATCH CART <span class="badge badge-secondary ">
+    <mat-icon>shopping_cart</mat-icon>
+  </span> 
+</h1>
+<!-- <button type="button" class="btn btn-danger right-hook" (click)="deleteAllFromCart()">Delete All From Cart</button> -->
+<!-- <h4></h4>
+<h4></h4>
+<button type="button" class="btn btn-danger right-hook" (click)="deleteAllFromCart()">Delete All From Cart</button><mat-form-field class="right-hook">
+  <mat-label></mat-label>
+  <select matNativeControl >
+    <option  value="review">Filter: Genre</option>
+    <option value="Action">Action</option>
+    <option value="Horror">Horror</option>
+    <option value="Mystery">Mystery</option>
+    <option value="Fantasy">Fantasy</option>
+    <option value="Drama">Drama</option>
+  </select>
+</mat-form-field>
+<mat-form-field class="right-hook">
+  <mat-label></mat-label>
+  <select matNativeControl required>
+    <option value="rating">Filter: Rating</option>
+    <option value="saab">High > Low</option>
+    <option value="mercedes">Low > High</option>
+  </select>
+</mat-form-field>
+<mat-form-field class="right-hook">
+  <mat-label></mat-label>
+  <select matNativeControl required>
+    <option value="review">Filter: Review</option>
+    <option value="saab">High > Low</option>
+    <option value="mercedes">Low > High</option>
+  </select>
+</mat-form-field><mat-form-field class="right-hook">
+  <mat-label></mat-label>
+  <select matNativeControl required>
+    <option value="review">Filter: Year</option>
+    <option value="saab">Newest > Oldest</option>
+    <option value="mercedes">Oldest > Newest</option>
+  </select>
+</mat-form-field> -->
+
+
+
+<table class="table spacing main-container">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Reviews</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Genre</th>
+      <th scope="col">Year</th>
+      <th scope="col"><button type="button" class="btn btn-danger right-hook" (click)="deleteAllFromCart()">Delete All From Cart</button></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let movies of movies; let i = index">
+      <th scope="row">{{movies.title}}</th>
+      <td>{{movies.reviews}}</td>
+      <td>{{movies.rating}}</td>
+      <td>{{movies.genre}}</td>
+      <td>{{movies.year}}</td>
+      <td><button type="button" class="btn btn-danger pull-right" mat-raised-button color="warn" (click)="delete(i)">
+          <mat-icon>delete_sweep</mat-icon>
+        </button></td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+<mat-grid-list cols="2" rowHeight="2:1" class="spacing list-container">
+  <mat-grid-tile class="spacing">
+
+    <figure class="figure">
+
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/TcMBFSGVi1c" allowfullscreen></iframe>
+      </div>
+
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Reviews</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Avengers: End Game</th>
+            <td>4.8</td>
+            <td>PG-13</td>
+            <td>Action</td>
+            <td>2019</td>
+          </tr>
+        </tbody>
+
+        <button type="button" class="btn btn-primary" (click)="matBadge + 1">
+          <mat-icon matBadge="908" matBadgeColor="primary">thumb_up</mat-icon>
+        </button>
+
+
+        <button type="button" class="btn btn-danger">
+          <mat-icon matBadge="21" matBadgeColor="warn">thumb_down</mat-icon>
+        </button>
+
+        <button type="button" class="btn btn-success" (click)="addToCart('avengers')">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+
+      </table>
+    </figure>
+  </mat-grid-tile>
+
+
+
+  <mat-grid-tile class="spacing">
+
+    <figure class="figure">
+
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/-oD7B7oiBtw" allowfullscreen></iframe>
+      </div>
+
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Reviews</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Shazam!</th>
+            <td>3.5</td>
+            <td>PG-13</td>
+            <td>Action</td>
+            <td>2019</td>
+          </tr>
+        </tbody>
+
+        <button type="button" class="btn btn-primary">
+          <mat-icon matBadge="765" matBadgeColor="primary"> thumb_up</mat-icon>
+        </button>
+
+
+        <button type="button" class="btn btn-danger">
+          <mat-icon matBadge="45" matBadgeColor="warn">thumb_down</mat-icon>
+        </button>
+
+
+        <button type="button" class="btn btn-success" (click)="addToCart('shaz')">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+
+
+      </table>
+    </figure>
+  </mat-grid-tile>
+
+
+  <mat-grid-tile class="spacing">
+
+    <figure class="figure">
+
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/1tzFRIQfwXg" allowfullscreen></iframe>
+      </div>
+
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Reviews</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">US</th>
+            <td>4.1</td>
+            <td>R</td>
+            <td>Mystery</td>
+            <td>2019</td>
+          </tr>
+        </tbody>
+
+        <button type="button" class="btn btn-primary">
+          <mat-icon matBadge="543" matBadgeColor="primary">thumb_up</mat-icon>
+        </button>
+
+
+
+        <button type="button" class="btn btn-danger">
+          <mat-icon matBadge="80" matBadgeColor="warn">thumb_down</mat-icon>
+        </button>
+        <button type="button" class="btn btn-success" (click)="addToCart('us')">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+      </table>
+    </figure>
+  </mat-grid-tile>
+
+
+  <mat-grid-tile class="spacing">
+
+    <figure class="figure">
+
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ocWpGdITSR4" allowfullscreen></iframe>
+      </div>
+
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Reviews</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Dumbo</th>
+            <td>3.2</td>
+            <td>PG</td>
+            <td>Fantasy</td>
+            <td>2019</td>
+          </tr>
+        </tbody>
+
+        <button type="button" class="btn btn-primary">
+          <mat-icon matBadge="329" matBadgeColor="primary">thumb_up</mat-icon>
+        </button>
+
+
+
+        <button type="button" class="btn btn-danger">
+          <mat-icon matBadge="105" matBadgeColor="warn">thumb_down</mat-icon>
+        </button>
+        <button type="button" class="btn btn-success" (click)="addToCart('dumbo')">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+      </table>
+    </figure>
+  </mat-grid-tile>
+
+
+  <mat-grid-tile class="spacing">
+
+    <figure class="figure">
+
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/mP0VHJYFOAU" allowfullscreen></iframe>
+      </div>
+
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Reviews</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Bohemian Rhapsody</th>
+            <td>4.2</td>
+            <td>PG-13</td>
+            <td>Drama</td>
+            <td>2018</td>
+          </tr>
+        </tbody>
+
+        <button type="button" class="btn btn-primary">
+          <mat-icon matBadge="562" matBadgeColor="primary">thumb_up</mat-icon>
+        </button>
+
+
+
+        <button type="button" class="btn btn-danger">
+          <mat-icon matBadge="83" matBadgeColor="warn">thumb_down</mat-icon>
+        </button>
+        <button type="button" class="btn btn-success" (click)="addToCart('bohemian')">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+      </table>
+    </figure>
+  </mat-grid-tile>
+
+  <mat-grid-tile class="spacing">
+
+    <figure class="figure">
+
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lcwmDAYt22k" allowfullscreen></iframe>
+      </div>
+
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Reviews</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Bumblebee</th>
+            <td>3.8</td>
+            <td>PG-13</td>
+            <td>Action</td>
+            <td>2018</td>
+          </tr>
+        </tbody>
+
+        <button type="button" class="btn btn-primary">
+          <mat-icon matBadge="756" matBadgeColor="primary">thumb_up</mat-icon>
+        </button>
+
+
+
+        <button type="button" class="btn btn-danger">
+          <mat-icon matBadge="97" matBadgeColor="warn">thumb_down</mat-icon>
+        </button>
+        <button type="button" class="btn btn-success" (click)="addToCart('bee')">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+      </table>
+    </figure>
+  </mat-grid-tile>
+
+
+  <mat-grid-tile class="spacing">
+
+    <figure class="figure">
+
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ek1ePFp-nBI" allowfullscreen></iframe>
+      </div>
+
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Reviews</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Halloween</th>
+            <td>3.7</td>
+            <td>R</td>
+            <td>Horror</td>
+            <td>2018</td>
+          </tr>
+        </tbody>
+
+        <button type="button" class="btn btn-primary">
+          <mat-icon matBadge="492" matBadgeColor="primary">thumb_up</mat-icon>
+        </button>
+
+
+
+        <button type="button" class="btn btn-danger">
+          <mat-icon matBadge="167" matBadgeColor="warn">thumb_down</mat-icon>
+        </button>
+        <button type="button" class="btn btn-success" (click)="addToCart('halloween')">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+      </table>
+    </figure>
+  </mat-grid-tile>
+
+  <mat-grid-tile class="spacing">
+
+    <figure class="figure">
+
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w7pYhpJaJW8" allowfullscreen></iframe>
+      </div>
+
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Reviews</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Alita: Battle Angel</th>
+            <td>4</td>
+            <td>PG-13</td>
+            <td>Action</td>
+            <td>2019</td>
+          </tr>
+        </tbody>
+
+        <button type="button" class="btn btn-primary">
+          <mat-icon matBadge="771" matBadgeColor="primary">thumb_up</mat-icon>
+        </button>
+
+
+
+        <button type="button" class="btn btn-danger">
+          <mat-icon matBadge="129" matBadgeColor="warn">thumb_down</mat-icon>
+        </button>
+        <button type="button" class="btn btn-success" (click)="addToCart('alita')">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+      </table>
+    </figure>
+  </mat-grid-tile>
+
+
+  <mat-grid-tile class="spacing">
+
+    <figure class="figure">
+
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/cSp1dM2Vj48" allowfullscreen></iframe>
+      </div>
+
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Reviews</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Ready Player One</th>
+            <td>4.4</td>
+            <td>PG-13</td>
+            <td>Action</td>
+            <td>2018</td>
+          </tr>
+        </tbody>
+
+        <button type="button" class="btn btn-primary">
+          <mat-icon matBadge="915" matBadgeColor="primary">thumb_up</mat-icon>
+        </button>
+
+
+
+        <button type="button" class="btn btn-danger">
+          <mat-icon matBadge="242" matBadgeColor="warn">thumb_down</mat-icon>
+        </button>
+        <button type="button" class="btn btn-success" (click)="addToCart('player')">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+      </table>
+    </figure>
+  </mat-grid-tile>
+
+
+  <mat-grid-tile class="spacing">
+
+    <figure class="figure">
+
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zK0LNzU2TQI" allowfullscreen></iframe>
+      </div>
+
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Reviews</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Pet Sematary</th>
+            <td>3.5</td>
+            <td>R</td>
+            <td>Horror</td>
+            <td>2019</td>
+          </tr>
+        </tbody>
+
+        <button type="button" class="btn btn-primary">
+          <mat-icon matBadge="471" matBadgeColor="primary">thumb_up</mat-icon>
+        </button>
+
+
+
+        <button type="button" class="btn btn-danger">
+          <mat-icon matBadge="130" matBadgeColor="warn">thumb_down</mat-icon>
+        </button>
+        <button type="button" class="btn btn-success" (click)="addToCart('pet')">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+      </table>
+    </figure>
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+

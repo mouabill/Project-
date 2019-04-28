@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialDesignModule } from '../material-design/material-design.module';
 import { MoviesComponent } from './movies/movies.component';
 
+
 import {FormsModule} from '@angular/forms';
 
 @NgModule({
