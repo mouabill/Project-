@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialDesignModule } from '../material-design/material-design.module';
 import { MoviesComponent } from './movies/movies.component';
-
+import { ToastModule } from './toast/toast.module';
 
 import {FormsModule} from '@angular/forms';
 
@@ -21,7 +21,8 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialDesignModule,
-    FormsModule
+    FormsModule,
+    ToastModule
 
   ],
   providers: [],

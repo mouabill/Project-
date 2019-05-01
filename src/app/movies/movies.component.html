@@ -24,14 +24,14 @@
 
 <div>
   <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark top-container">
-    <a class="navbar-brand" href="#">Movies R Us</a>
+    <a class="navbar-brand" href="#">Movie Generator</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <button type="button" class="btn btn-outline-success" (click)="addAllMovies()">All Movies</button>
     <button type="button" class="btn btn-outline-success" (click)="randomMovie()">Randomizer</button>
-    <button type="button" class="btn btn-outline-success">Request A Movie</button>
+    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
 
@@ -46,6 +46,13 @@
   </nav>
 </div>
 
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Movie Name:" aria-label="Recipient's username" aria-describedby="button-addon2"
+    [(ngModel)]="movieParams" name="search">
+    <div class="input-group-append">
+        <button type="button" class="btn btn-outline-success" (click)="openInput(movieParams)">Request A Movie</button>
+    </div>
+  </div>
 
 
 <!-- 
@@ -76,6 +83,9 @@
     <mat-icon>shopping_cart</mat-icon>
   </span> 
 </h1>
+<th scope="col"><button type="button" class="btn btn-success right-hook" (click)="sortBy()">Sort By Year</button></th>
+<th scope="col"><button type="button" class="btn btn-success right-hook" (click)="sortByReviews()">Sort By Reviews</button></th>
+<th scope="col"><button type="button" class="btn btn-success right-hook" (click)="sortByAZ()">Sort By Title</button></th>
 <!-- <button type="button" class="btn btn-danger right-hook" (click)="deleteAllFromCart()">Delete All From Cart</button> -->
 <!-- <h4></h4>
 <h4></h4>
@@ -521,7 +531,7 @@
     <figure class="figure">
 
       <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/cSp1dM2Vj48" allowfullscreen></iframe>
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ixWL1BWi44U" allowfullscreen></iframe>
       </div>
 
 
