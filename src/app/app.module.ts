@@ -8,11 +8,19 @@ import { MoviesComponent } from './movies/movies.component';
 import { ToastModule } from './toast/toast.module';
 
 import {FormsModule} from '@angular/forms';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { MainContentComponent } from './main-content/main-content.component';
+import { RequestsComponent } from './requests/requests.component';
+
+import {AppRoutes} from './app.routes';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesComponent,
+    NavBarComponent,
+    MainContentComponent,
+    RequestsComponent,
 
 
 
@@ -22,7 +30,8 @@ import {FormsModule} from '@angular/forms';
     BrowserAnimationsModule,
     MaterialDesignModule,
     FormsModule,
-    ToastModule
+    ToastModule,
+    AppRoutes
 
   ],
   providers: [],

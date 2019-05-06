@@ -2,3 +2,56 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 
+/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+
+}
+
+html,
+body {
+    width: 100vw;
+    height: 100vw;
+    background-image: url("assets/img/movie.png");
+}
+
+.main-container {
+    /* display: grid; */
+    height: 100%;
+    /* grid-template-rows: 1fr 12fr 1fr; */
+
+}
+
+.row-one {
+    background-color: aqua;
+
+
+
+}
+
+.row-one,
+.row-two,
+.row-three {
+    display: grid;
+    grid-template-columns: 1fr 5fr 2fr;
+    height: 100%; 
+}
+
+.row-two {
+    background-color: white;
+
+
+}
+
+/* .row-three {
+    background-color: aqua;
+
+} */
+
+.container-padding {
+    margin: 12px;
+    border: 1px black;
+
+}

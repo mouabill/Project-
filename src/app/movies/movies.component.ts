@@ -30,86 +30,23 @@ export class MoviesComponent implements OnInit {
   constructor(private toastService: ToastService) { }
 
 
-  ngOnInit() {
-    // this.movies = [
-    //   {
-    //     title: 'Avengers: End Game',
-    //     reviews: 4.9,
-    //     rating: 'PG-13',
-    //     genre: 'Action',
-    //     year: 2019,
-    //   },
-    //   {
-    //     title: 'Shazam!',
-    //     reviews: 3.5,
-    //     rating: 'PG-13',
-    //     genre: 'Action',
-    //     year: 2019,
-    //   },
-    //   {
-    //     title: 'US',
-    //     reviews: 4.1,
-    //     rating: 'R',
-    //     genre: 'Horror',
-    //     year: 2019
-    //   },
-    //   {
-    //     title: 'Dumbo',
-    //     reviews: 3.2,
-    //     rating: 'PG',
-    //     genre: 'Fantasy',
-    //     year: 2019,
-    //   },
-    //   {
-    //     title: 'Bohemian Rhapsody',
-    //     reviews: 4.2,
-    //     rating: 'PG-13',
-    //     genre: 'Drama',
-    //     year: 2019
-    //   },
-    //   {
-    //     title: 'Bumblebee',
-    //     reviews: 3.8,
-    //     rating: 'PG-13',
-    //     genre: 'Action',
-    //     year: 2018
-    //   },
-    //   {
-    //     title: 'Halloween',
-    //     reviews: 3.7,
-    //     rating: 'R',
-    //     genre: 'Horror',
-    //     year: 2018
-    //   },
-    //   {
-    //     title: 'Alita: Battle Angel',
-    //     reviews: 4,
-    //     rating: 'PG-13',
-    //     genre: 'Action',
-    //     year: 2019
-    //   },
-    //   {
-    //     title: 'Ready Player One',
-    //     reviews: 4.4,
-    //     rating: 'PG-13',
-    //     genre: 'Action',
-    //     year: 2018
-    //   },
-    //   {
-    //     title: 'Pet Semetary',
-    //     reviews: 3.5,
-    //     rating: 'R',
-    //     genre: 'Horror',
-    //     year: 2019
-    //   }
+   async ngOnInit() {
+    const movies = JSON.parse(localStorage.getItem('movies'));
+    if (movies && movies.length > 0) {
+      this.movies = movies;
+    }
+    console.log('your saved movies are: ', movies);
+  }
 
-    // ];
+  saveToLocalStorage() {
+    const movies = localStorage.setItem('movies', JSON.stringify(this.movies));
   }
 
 
   delete(index: number) {
     this.movies.splice(index, 1);
     console.log('the index: ', index);
+    this.saveToLocalStorage();
   }
 
 
@@ -124,6 +61,7 @@ export class MoviesComponent implements OnInit {
         year: 2019
       });
       this.toastService.showToasts('success', 4000, 'Added Avengers: End Game to Watch Cart');
+      this.saveToLocalStorage();
     }
     if (id === 'shaz') {
       this.movies.unshift({
@@ -134,6 +72,7 @@ export class MoviesComponent implements OnInit {
         year: 2019
       });
       this.toastService.showToasts('success', 4000, 'Added Shazam! to Watch Cart');
+      this.saveToLocalStorage();
     }
     if (id === 'us') {
       this.movies.unshift({
@@ -144,6 +83,7 @@ export class MoviesComponent implements OnInit {
         year: 2019
       });
       this.toastService.showToasts('success', 4000, 'Added US to Watch Cart');
+      this.saveToLocalStorage();
     }
     if (id === 'dumbo') {
       this.movies.unshift({
@@ -154,6 +94,7 @@ export class MoviesComponent implements OnInit {
         year: 2019
       });
       this.toastService.showToasts('success', 4000, 'Added Dumbo to Watch Cart');
+      this.saveToLocalStorage();
     }
     if (id === 'bohemian') {
       this.movies.unshift({
@@ -164,6 +105,7 @@ export class MoviesComponent implements OnInit {
         year: 2018
       });
       this.toastService.showToasts('success', 4000, 'Added Bohemian Rhapsody to Watch Cart');
+      this.saveToLocalStorage();
     }
     if (id === 'bee') {
       this.movies.unshift({
@@ -174,6 +116,7 @@ export class MoviesComponent implements OnInit {
         year: 2018
       });
       this.toastService.showToasts('success', 4000, 'Added Bumblebee to Watch Cart');
+      this.saveToLocalStorage();
     }
     if (id === 'halloween') {
       this.movies.unshift({
@@ -184,6 +127,7 @@ export class MoviesComponent implements OnInit {
         year: 2018
       });
       this.toastService.showToasts('success', 4000, 'Added Halloween to Watch Cart');
+      this.saveToLocalStorage();
     }
     if (id === 'alita') {
       this.movies.unshift({
@@ -194,6 +138,7 @@ export class MoviesComponent implements OnInit {
         year: 2019
       });
       this.toastService.showToasts('success', 4000, 'Added Alita: Battle Angel to Watch Cart');
+      this.saveToLocalStorage();
     }
     if (id === 'player') {
       this.movies.unshift({
@@ -204,6 +149,7 @@ export class MoviesComponent implements OnInit {
         year: 2018
       });
       this.toastService.showToasts('success', 4000, 'Added Ready Player One to Watch Cart');
+      this.saveToLocalStorage();
     }
     if (id === 'pet') {
       this.movies.unshift({
@@ -214,6 +160,7 @@ export class MoviesComponent implements OnInit {
         year: 2019
       });
       this.toastService.showToasts('success', 4000, 'Added Pet Semetary to Watch Cart');
+      this.saveToLocalStorage();
     }
 
 
@@ -232,6 +179,7 @@ export class MoviesComponent implements OnInit {
         year: 2019
       });
       this.toastService.showToasts('success', 2000, 'Added Avengers: End Game to Watch Cart');
+      this.saveToLocalStorage();
     }
     if (rand === 1) {
       this.movies.unshift({
@@ -242,6 +190,7 @@ export class MoviesComponent implements OnInit {
         year: 2019
       });
       this.toastService.showToasts('success', 2000, 'Added Shazam! to Watch Cart');
+      this.saveToLocalStorage();
     }
     if (rand === 2) {
       this.movies.unshift({
@@ -252,6 +201,7 @@ export class MoviesComponent implements OnInit {
         year: 2019
       });
       this.toastService.showToasts('success', 2000, 'Added US to Watch Cart');
+      this.saveToLocalStorage();
     }
     if (rand === 3) {
       this.movies.unshift({
@@ -262,6 +212,7 @@ export class MoviesComponent implements OnInit {
         year: 2019
       });
       this.toastService.showToasts('success', 2000, 'Added Dumbo to Watch Cart');
+      this.saveToLocalStorage();
     }
     if (rand === 4) {
       this.movies.unshift({
@@ -272,6 +223,7 @@ export class MoviesComponent implements OnInit {
         year: 2018
       });
       this.toastService.showToasts('success', 2000, 'Added Bohemian Rhapsody to Watch Cart');
+      this.saveToLocalStorage();
     }
     if (rand === 5) {
       this.movies.unshift({
@@ -282,6 +234,7 @@ export class MoviesComponent implements OnInit {
         year: 2018
       });
       this.toastService.showToasts('success', 2000, 'Added Bumblebee to Watch Cart');
+      this.saveToLocalStorage();
     }
     if (rand === 6) {
       this.movies.unshift({
@@ -292,6 +245,7 @@ export class MoviesComponent implements OnInit {
         year: 2018
       });
       this.toastService.showToasts('success', 2000, 'Added Halloween to Watch Cart');
+      this.saveToLocalStorage();
     }
     if (rand === 7) {
       this.movies.unshift({
@@ -302,6 +256,7 @@ export class MoviesComponent implements OnInit {
         year: 2019
       });
       this.toastService.showToasts('success', 2000, 'Added Alita: Battle Angel to Watch Cart');
+      this.saveToLocalStorage();
     }
     if (rand === 8) {
       this.movies.unshift({
@@ -312,6 +267,7 @@ export class MoviesComponent implements OnInit {
         year: 2018
       });
       this.toastService.showToasts('success', 2000, 'Added Ready Player One to Watch Cart');
+      this.saveToLocalStorage();
     }
     if (rand === 9) {
       this.movies.unshift({
@@ -322,6 +278,7 @@ export class MoviesComponent implements OnInit {
         year: 2019
       });
       this.toastService.showToasts('success', 2000, 'Added Pet Semetary to Watch Cart');
+      this.saveToLocalStorage();
 
 
     }
@@ -329,9 +286,6 @@ export class MoviesComponent implements OnInit {
 
   }
 
-  genreFilter() {
-    console.log('you did it!');
-  }
 
   sortBy(movies: Array<Movies>) {
 this.movies.sort((a: Movies, b: Movies) => {
@@ -351,18 +305,6 @@ this.movies.sort((a: Movies, b: Movies) => {
     });
   }
 
-  openInput(params: string) {
-    // this.toastService.showToasts();
-    console.log('searching for: ', params);
-    if (params === undefined) {
-      this.toastService.showToasts('danger', 4000, 'Must enter movie title!');
-      // this.toastService.showToasts('info', 4000, 'Thank you for submiting movie request for: ' + params);
-
-    } else {
-      this.toastService.showToasts('info', 4000, 'Thank you for submiting movie request for: ' + params);
-    }
-  }
-
   searchCart(params: string) {
     console.log('searching for: ', params);
 
@@ -377,6 +319,7 @@ this.movies.sort((a: Movies, b: Movies) => {
 
   deleteAllFromCart(index: number) {
     this.movies.splice(index, 10000000000000000000000000);
+    this.saveToLocalStorage();
   }
 
   addAllMovies() {
@@ -450,6 +393,7 @@ this.movies.sort((a: Movies, b: Movies) => {
         genre: 'Horror',
         year: 2019
       });
+    this.saveToLocalStorage();
   }
 
 
